@@ -1,17 +1,17 @@
+Austin Group Bug Tracker
+========================
+
+This a repurposed, modified version of the Mantis Bug Tracker ( https://mantisbt.org/ ). 
+The changes are to enable its use as a tracker for requested changes to a document, as
+opposed to a code base. The Mantis code base is v 2.27.0.
+
+The document in question is the Single UNIX Specification (SUS), managed by the Austin
+Common Standards Revision Group ( http://www.opengroup.org/austin/ ). 
+
+Below is the original README for Mantis:
 Mantis Bug Tracker (MantisBT)
 =============================
 
-[![Build Status](https://img.shields.io/travis/com/mantisbt/mantisbt/master?logo=travis)](https://app.travis-ci.com/mantisbt/mantisbt)
-[![Gitter](https://img.shields.io/gitter/room/mantisbt/mantisbt.svg?logo=gitter)](https://gitter.im/mantisbt/mantisbt)
-
-Screenshots
------------
-
-![Screenshot of View Issues page](doc/modern_view_issues.png)
-
-![Screenshot of My View page](doc/modern_my_view.png)
-
-![Screenshot of View Issue Details page](doc/modern_view_issue.png)
 
 Documentation
 -------------
