@@ -359,7 +359,7 @@ $g_crypto_master_salt = '';
  * @see $g_send_reset_password
  * @global int $g_allow_signup
  */
-$g_allow_signup = ON;
+$g_allow_signup = OFF;
 
 /**
  * Maximum number of failed login attempts before the user's account is locked.
@@ -399,7 +399,7 @@ $g_send_reset_password = ON;
  *
  * @global int $g_signup_use_captcha
  */
-$g_signup_use_captcha = ON;
+$g_signup_use_captcha = OFF;
 
 /**
  * Path to TrueType font files.
@@ -1734,8 +1734,6 @@ $g_default_bug_reproducibility = REPRODUCIBILITY_HAVENOTTRIED;
 /**
  * Default bug projection when reporting a new bug.
  *
- * @global int $g_default_bug_projection
- */
 $g_default_bug_projection = PROJECTION_NONE;
 
 /**
@@ -1789,13 +1787,6 @@ $g_default_limit_view = 50;
  */
 $g_default_show_changed = 6;
 
-/**
- *
- * @global int $g_hide_status_default
- */
-$g_hide_status_default = CLOSED;
-
-/**
  *
  * @global int $g_show_sticky_issues
  */
