@@ -29,6 +29,10 @@
 # Look in http://www.mantisbt.org/docs/ or config_defaults_inc.php for more
 # detailed comments.
 
+# LOOK IN END SECTION FOR OTHER AUSTIN GROUP CUSTOMIZATIONS.
+# For all edits to any file in Mantis code, there will be a comment
+# with the text AUSTIN GROUP in a comment for ease in discovery.
+
 # --- Database Configuration ---
 $g_hostname      = 'localhost';
 $g_db_username   = 'aardvarkdbuser';
@@ -78,7 +82,12 @@ $g_window_title			= 'Austin Group Defect Tracker';
 # $g_show_realname = OFF;
 $g_show_user_realname_threshold = NOBODY;	# Set to access level (e.g. VIEWER, REPORTER, DEVELOPER, MANAGER, etc)
 
-# --- Others ---
+###################################################
+# OTHER CUSTOMIZATIONS WITH DEFAULTS IN ./config_defaults_inc.php
+# OVERRIDDEN HERE FOR AUSTIN GROUP
+# See ./config_defautls_inc.php for details on how these are used.
+###################################################
+
 $g_default_home_page = 'my_view_page.php';	# Set to name of page to go to after login
 
 # --- Mantis Documentation ---
@@ -102,6 +111,35 @@ $g_csv_columns = array ( 'id', 'project_id', 'reporter_id', 'handler_id', 'prior
 $g_excel_columns = array ( 'id', 'project_id', 'reporter_id', 'handler_id', 'priority', 'severity', 'reproducibility', 'version', 'projection', 'category', 'date_submitted', 'eta', 'os', 'os_build', 'platform', 'view_state', 'last_updated', 'summary', 'status', 'resolution', 'fixed_in_version', 'duplicate_id' );
 
 $g_default_timezone = 'UTC';
+
+$g_html_valid_tags = 'p, li, ul, ol, br, pre, i, b, u, em, blockquote, strong';
+$g_html_valid_tags_single_line = 'i, b, u, em, strong';
+
+$g_bug_link_tag = 'bugid:';
+$g_bugnote_link_tag = 'bugnote:';
+
+$g_window_title = 'Austin Group Defect Tracker';      # browser window title
+
+$g_view_changelog_threshold = ADMINISTRATOR;
+$g_roadmap_view_threshold = ADMINISTRATOR;
+
+$g_my_view_boxes = array(
+        'assigned'      => '1',
+        'unassigned'    => '0',
+        'reported'      => '2',
+        'resolved'      => '0',
+        'recent_mod'    => '0',
+        'monitored'     => '3',
+        'feedback'      => '0',
+        'verify'        => '0',
+        'my_comments'   => '0'
+); 
+
+$g_severity_enum_string = '10:Comment,50:Editorial,70:Objection';
+$g_reproducibility_enum_string = '30:Error,50:Omission,70:Clarification Requested,90:Enhancement Request';
+$g_status_enum_string = '10:New,20:Under Review,40:Interpretation Required,50:Resolution Proposed,80:Resolved,85:Applied,90:Closed';
+$g_resolution_enum_string = '10:Open,20:Accepted,30:Reopened,40:Accepted As Marked,60:Duplicate,80:Future Enhancement,85:Withdrawn,90:Rejected';
+
 
 
 
