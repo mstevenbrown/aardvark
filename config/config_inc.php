@@ -62,7 +62,7 @@ $g_email_send_using_cronjob = OFF;
 
 $g_notify_flags['new']['threshold_min'] = DEVELOPER;
 $g_notify_flags['new']['threshold_max'] = DEVELOPER;
-$g_allow_blank_email    = ON;
+$g_allow_blank_email    = OFF;
 
 # --- Attachments / File Uploads ---
 $g_allow_file_upload	= ON;
