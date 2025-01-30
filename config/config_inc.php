@@ -37,11 +37,11 @@
 $g_hostname      = 'localhost';
 $g_db_username   = 'aardvarkdbuser';
 $g_db_password   = 'aardvarkdbuser2019';
-$g_database_name = 'aardvarkdb23Dec19';
+$g_database_name = 'tester0db';
 $g_db_type       = 'mysqli';
 
 # --- Security ---
-$g_crypto_master_salt = '';	#  Random string of at least 16 chars, unique to the installation
+$g_crypto_master_salt = '4UvupWFBiqrR0io8D1+sU8ORnHqbzZuEsH+OkVlZUz+JeWWzAdUSqZF3Fy0A1ZiZWcvpcVKNXTwqJf0V3i9jPg==';	#  Random string of at least 16 chars, unique to the installation
 
 # --- Anonymous Access / Signup ---
 $g_allow_signup				= OFF;
@@ -94,7 +94,7 @@ $g_signup_use_captcha = OFF;
 $g_default_home_page = 'my_view_page.php';	# Set to name of page to go to after login
 
 # --- Mantis Documentation ---
-$g_manual_url = 'https://mantisbt.org/documentation.php'
+$g_manual_url = 'https://mantisbt.org/documentation.php';
 
 $g_show_version = ON;
 $g_default_language = 'english';
