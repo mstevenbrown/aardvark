@@ -754,8 +754,12 @@ function email_generic_to_recipients( $p_bug_id, $p_notify_type, array $p_recipi
 		lang_push( user_pref_get_language( $t_user_id, $t_project_id ) );
 
 		$t_visible_bug_data = email_build_visible_bug_data( $t_user_id, $p_bug_id, $p_message_id );
-		email_bug_info_to_one_user( $t_visible_bug_data, $p_message_id, $t_user_id, $p_header_optional_params );
 
+/**
+* OPEN GROUP edited to add p_notify_type
+*               email_bug_info_to_one_user( $t_visible_bug_data, $p_message_id, $t_user_id, $p_header_optional_params );
+*/
+		email_bug_info_to_one_user( $t_visible_bug_data, $p_message_id, $t_user_id, $p_header_optional_params, $p_notify_type );
 		lang_pop();
 	}
 }
@@ -1767,7 +1771,11 @@ function email_user_mention( $p_bug_id, $p_mention_user_ids, $p_message, $p_remo
  *
  * @return void
  */
-function email_bug_info_to_one_user( array $p_visible_bug_data, $p_message_id, $p_user_id, array $p_header_optional_params = null ) {
+
+/**
+* OPEN GROUP edits to add p_notify_type
+*/
+function email_bug_info_to_one_user( array $p_visible_bug_data, $p_message_id, $p_user_id, array $p_header_optional_params = null, $p_notify_type ) {
 	$t_user_email = user_get_email( $p_user_id );
 
 	# check whether email should be sent
@@ -1790,18 +1798,22 @@ function email_bug_info_to_one_user( array $p_visible_bug_data, $p_message_id, $
 		$t_message .= " \n";
 	}
 
-	$t_message .= email_format_bug_message( $p_visible_bug_data );
+	$t_message .= email_format_bug_message( $p_visible_bug_data, $p_notify_type );
 
 	# build headers
 	$t_bug_id = $p_visible_bug_data['email_bug'];
 	$t_message_md5 = email_generate_bug_md5( $t_bug_id, $p_visible_bug_data['email_date_submitted'] );
+
+/**
+* OPEN GROUP messages need X- headers, Mantis gets this wrong
+*/
 	$t_mail_headers = array(
-		'keywords' => $p_visible_bug_data['set_category'],
+		'X-keywords' => $p_visible_bug_data['set_category'],
 	);
 	if( $p_message_id == 'email_notification_title_for_action_bug_submitted' ) {
-		$t_mail_headers['Message-ID'] = $t_message_md5;
+		$t_mail_headers['X-Message-ID'] = $t_message_md5;
 	} else {
-		$t_mail_headers['In-Reply-To'] = $t_message_md5;
+		$t_mail_headers['X-In-Reply-To'] = $t_message_md5;
 	}
 
 	# send mail
@@ -1861,7 +1873,11 @@ function email_format_bugnote( $p_bugnote, $p_project_id, $p_show_time_tracking,
  *
  * @return string
  */
-function email_format_bug_message( array $p_visible_bug_data ) {
+
+/**
+* OPEN GROUP adding p_notify_type
+*/
+function email_format_bug_message( array $p_visible_bug_data, $p_notify_type ) {
 	$t_normal_date_format = config_get( 'normal_date_format' );
 	$t_complete_date_format = config_get( 'complete_date_format' );
 
@@ -1946,14 +1962,20 @@ function email_format_bug_message( array $p_visible_bug_data ) {
 
 	$t_message .= email_format_attribute( $p_visible_bug_data, 'email_summary' );
 
-	$t_message .= lang_get( 'email_description' ) . ": \n" . $p_visible_bug_data['email_description'] . "\n";
+	# OPEN GROUP only do Description if a new bug
+	if ( 'new' == $p_notify_type ) {
+	    $t_message .= lang_get( 'email_description' ) . ": \n" . $p_visible_bug_data['email_description'] . "\n";
+	}
 
 	if( isset( $p_visible_bug_data[ 'email_steps_to_reproduce' ] ) && !is_blank( $p_visible_bug_data['email_steps_to_reproduce'] ) ) {
 		$t_message .= "\n" . lang_get( 'email_steps_to_reproduce' ) . ": \n" . $p_visible_bug_data['email_steps_to_reproduce'] . "\n";
 	}
 
-	if( isset( $p_visible_bug_data[ 'email_additional_information' ] ) && !is_blank( $p_visible_bug_data['email_additional_information'] ) ) {
-		$t_message .= "\n" . lang_get( 'email_additional_information' ) . ": \n" . $p_visible_bug_data['email_additional_information'] . "\n";
+	# OPEN GROUP only do Desired Action if a new bug
+        if ( 'new' == $p_notify_type ) {
+	    if( isset( $p_visible_bug_data[ 'email_desired_action' ] ) && !is_blank( $p_visible_bug_data['email_desired_action'] ) ) {
+		$t_message .= "\n" . lang_get( 'email_desired_action' ) . ": \n" . $p_visible_bug_data['email_desired_action'] . "\n";
+	    }
 	}
 
 	if( isset( $p_visible_bug_data['relations'] ) ) {
@@ -1981,10 +2003,18 @@ function email_format_bug_message( array $p_visible_bug_data ) {
 	$t_message .= $t_email_separator1 . " \n\n";
 
 	# format bugnotes
-	foreach( $p_visible_bug_data['bugnotes'] as $t_bugnote ) {
-		# Show time tracking is always true, since data has already been filtered out when creating the bug visible data.
-		$t_message .= email_format_bugnote( $t_bugnote, $p_visible_bug_data['email_project_id'],
-				/* show_time_tracking */ true,  $t_email_separator2, $t_normal_date_format ) . "\n";
+	# OPEN GROUP edit
+	# Modify to limit text of notes
+	# only show LAST bugnote, and ONLY if a new note was added
+	# Variable is set in bugnote_add() bugnote_api.php
+	global $g_print_last_bugnote;
+	if ( "YES" == $g_print_last_bugnote ) {
+                $t_bugnote = end($p_visible_bug_data['bugnotes']);
+
+		# Show time tracking is always true, since data 
+		# has already been filtered out when creating the bug 
+		# visible data.
+		$t_message .= email_format_bugnote( $t_bugnote, $p_visible_bug_data['email_project_id'], /* show_time_tracking */ true,  $t_email_separator2, $t_normal_date_format ) . "\n";
 	}
 
 	# format history
@@ -2128,7 +2158,8 @@ function email_build_visible_bug_data( $p_user_id, $p_bug_id, $p_message_id ) {
 	$t_bug_data['email_description'] = $t_row['description'];
 
 	if( in_array( 'additional_info', $t_bug_view_fields ) ) {
-		$t_bug_data['email_additional_information'] = $t_row['additional_information'];
+# OPEN GROUP edit
+		$t_bug_data['email_desired_action'] = $t_row['additional_information'];
 	}
 	
 	if ( in_array( 'steps_to_reproduce', $t_bug_view_fields ) ) {
