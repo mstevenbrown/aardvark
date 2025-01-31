@@ -498,6 +498,15 @@ class BugData {
 			}
 		}
 
+
+		# OPEN GROUP Desired Action field cannot be empty
+		if( $p_update_extended ) {
+			if( is_blank( $this->additional_information ) ) {
+				error_parameters( lang_get( 'additional_information' ) );
+				trigger_error( ERROR_EMPTY_FIELD, ERROR );
+			}
+		}
+
 		# Make sure a category is set
 		if( 0 == $this->category_id && !config_get( 'allow_no_category' ) ) {
 			error_parameters( lang_get( 'category' ) );

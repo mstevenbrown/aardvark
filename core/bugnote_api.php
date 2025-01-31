@@ -43,6 +43,9 @@
  * @uses utility_api.php
  */
 
+# OPEN GROUP add
+include( $t_core_dir . 'variables.php' );
+
 require_api( 'access_api.php' );
 require_api( 'antispam_api.php' );
 require_api( 'authentication_api.php' );
@@ -316,6 +319,13 @@ function bugnote_add( $p_bug_id, $p_bugnote_text, $p_time_tracking = '0:00', $p_
 	if( $p_log_history ) {
 		history_log_event_special( $p_bug_id, BUGNOTE_ADDED, bugnote_format_id( $t_bugnote_id ) );
 	}
+
+        # OPEN GROUP set global that we need to print this note.
+        # used in email_format_bug_message()
+	# variable set up in core/variables.php
+        global $g_print_last_bugnote;
+        $g_print_last_bugnote = "YES";
+
 
 	# Event integration
 	if( $p_trigger_event ) {
