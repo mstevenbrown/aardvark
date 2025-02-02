@@ -56,7 +56,7 @@ $g_smtp_password		= '';					# used with PHPMAILER_METHOD_SMTP
 $g_webmaster_email      = 'webmaster@msnkbrown.net';
 $g_from_email           = 'noreply@msnkbrown.net';	# the "From: " field in emails
 $g_return_path_email    = 'webmaster@msnkbrown.net';	# the return address for bounced mail
-$g_from_name			= 'Austin Group Bug Tracker';
+$g_from_name			= 'Austin Group Issue Tracker';
 $g_email_receive_own	= OFF;
 $g_email_send_using_cronjob = OFF;
 
@@ -74,7 +74,7 @@ $g_file_upload_method = DATABASE; # or DISK
 # $g_disallowed_files		= '';		# extensions comma separated
 
 # --- Branding ---
-$g_window_title			= 'Austin Group Defect Tracker';
+$g_window_title			= 'Austin Group Issue Tracker';
 # $g_logo_image			= 'images/mantis_logo.png';
 # $g_favicon_image		= 'images/favicon.ico';
 
@@ -121,7 +121,6 @@ $g_html_valid_tags_single_line = 'i, b, u, em, strong';
 $g_bug_link_tag = 'bugid:';
 $g_bugnote_link_tag = 'bugnote:';
 
-$g_window_title = 'Austin Group Defect Tracker';      # browser window title
 
 $g_view_changelog_threshold = ADMINISTRATOR;
 $g_roadmap_view_threshold = ADMINISTRATOR;

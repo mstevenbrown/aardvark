@@ -219,10 +219,14 @@ if( $t_steps_to_reproduce !== null ) {
 	$t_issue['steps_to_reproduce'] = $t_steps_to_reproduce;
 }
 
+/**
+* OPEN GROUP we always want additional_info field to present, even if empty
+* so comment out the null test
+*/
 $t_additional_info = gpc_get_string( 'additional_info', null );
-if( $t_additional_info !== null ) {
+# if( $t_additional_info !== null ) {
 	$t_issue['additional_information'] = $t_additional_info;
-}
+# }
 
 $t_due_date = gpc_get_string( 'due_date', null );
 if( $t_due_date !== null ) {
