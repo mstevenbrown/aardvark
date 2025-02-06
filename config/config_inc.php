@@ -90,6 +90,11 @@ $g_show_user_realname_threshold = NOBODY;	# Set to access level (e.g. VIEWER, RE
 
 $g_signup_use_captcha = OFF;
 
+$g_validate_email = OFF;
+
+$g_view_filters = ADVANCED_DEFAULT;
+
+
 
 $g_default_home_page = 'my_view_page.php';	# Set to name of page to go to after login
 
