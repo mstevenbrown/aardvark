@@ -33,6 +33,27 @@
 # For all edits to any file in Mantis code, there will be a comment
 # with the text AUSTIN GROUP in a comment for ease in discovery.
 
+##########################
+# MantisBT Path Settings #
+##########################
+
+/**
+ * Full URL to your installation as seen from the web browser.
+ *
+ * Requires trailing `/`.
+ *
+ * If not set, MantisBT will default this to a working URL valid for most
+ * installations.
+ *
+ * WARNING: The default is built based on headers from the HTTP request
+ * ({@see set_default_path()} in core.php). This is a potential security risk,
+ * as the system will be exposed to Host Header injection attacks, so it is
+ * strongly recommended to initialize this in config_inc.php.
+ *
+ * @global string $g_path
+ */
+$g_path = 'https://www.austingroupbugs.net/';
+
 # --- Database Configuration ---
 $g_hostname      = 'localhost';
 $g_db_username   = 'aardvarkdbuser';
