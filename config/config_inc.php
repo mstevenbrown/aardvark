@@ -150,6 +150,17 @@ $g_reproducibility_enum_string = '30:Error,50:Omission,70:Clarification Requeste
 $g_status_enum_string = '10:New,20:Under Review,40:Interpretation Required,50:Resolution Proposed,80:Resolved,85:Applied,90:Closed';
 $g_resolution_enum_string = '10:Open,20:Accepted,30:Reopened,40:Accepted As Marked,60:Duplicate,80:Future Enhancement,85:Withdrawn,90:Rejected';
 
+#Color codes to match $g_status_enum_string
+$g_status_colors = array(
+        'New'          => '#fcbdbd', # red    (scarlet red #ef2929)
+        'Under Review'     => '#e3b7eb', # purple (plum        #75507b)
+        'Interpretation Required' => '#ffcd85', # orange (orango      #f57900)
+        'Resolution Proposed'    => '#fff494', # yellow (butter      #fce94f)
+        'Resolved'     => '#c2dfff', # blue   (sky blue    #729fcf)
+        'Applied'     => '#d2f5b0', # green  (chameleon   #8ae234)
+        'Closed'       => '#c9ccc4'  # grey   (aluminum    #babdb6)
+); 
+
 
 
 
