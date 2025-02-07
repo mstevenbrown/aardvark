@@ -43,8 +43,6 @@
  * @uses utility_api.php
  */
 
-# OPEN GROUP add
-include( $t_core_dir . 'variables.php' );
 
 require_api( 'access_api.php' );
 require_api( 'antispam_api.php' );

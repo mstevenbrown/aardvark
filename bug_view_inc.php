@@ -562,6 +562,35 @@ event_signal( 'EVENT_VIEW_BUG_DETAILS', array( $f_issue_id ) );
 echo '<tr class="spacer"><td colspan="6"></td></tr>';
 echo '<tr class="hidden"></tr>';
 
+####
+# OPEN GROUP CHANGE
+# Move the 'Custom Fields' fields
+# above the 'Summary' through 'Attach Tags' fields
+###
+
+# Custom Fields
+if( isset( $t_issue['custom_fields'] ) ) {
+	foreach( $t_issue['custom_fields'] as $t_custom_field ) {
+		$t_def = custom_field_get_definition( $t_custom_field['field']['id'] );
+		$t_class = $t_def['type'] == CUSTOM_FIELD_TYPE_TEXTAREA ? ' cfdef-textarea' : '';
+
+		echo '<tr>';
+		echo '<th class="bug-custom-field category">', string_attribute( lang_get_defaulted( $t_def['name'] ) ), '</th>';
+		echo '<td class="bug-custom-field' . $t_class . '" colspan="5">';
+		print_custom_field_value( $t_def, $t_custom_field['field']['id'], $f_issue_id );
+		echo '</td></tr>';
+	}
+
+	# spacer
+	echo '<tr class="spacer"><td colspan="6"></td></tr>';
+	echo '<tr class="hidden"></tr>';
+}
+
+# spacer
+echo '<tr class="spacer"><td colspan="6"></td></tr>';
+echo '<tr class="hidden"></tr>';
+
+
 #
 # Bug Details (screen wide fields)
 #
@@ -637,28 +666,6 @@ if( !empty( $t_result['issue']['attachments'] ) ) {
 	}
 
 	echo '</td></tr>';
-}
-
-# spacer
-echo '<tr class="spacer"><td colspan="6"></td></tr>';
-echo '<tr class="hidden"></tr>';
-
-# Custom Fields
-if( isset( $t_issue['custom_fields'] ) ) {
-	foreach( $t_issue['custom_fields'] as $t_custom_field ) {
-		$t_def = custom_field_get_definition( $t_custom_field['field']['id'] );
-		$t_class = $t_def['type'] == CUSTOM_FIELD_TYPE_TEXTAREA ? ' cfdef-textarea' : '';
-
-		echo '<tr>';
-		echo '<th class="bug-custom-field category">', string_attribute( lang_get_defaulted( $t_def['name'] ) ), '</th>';
-		echo '<td class="bug-custom-field' . $t_class . '" colspan="5">';
-		print_custom_field_value( $t_def, $t_custom_field['field']['id'], $f_issue_id );
-		echo '</td></tr>';
-	}
-
-	# spacer
-	echo '<tr class="spacer"><td colspan="6"></td></tr>';
-	echo '<tr class="hidden"></tr>';
 }
 
 echo '</tbody></table>';
