@@ -65,9 +65,9 @@ $g_db_type       = 'mysqli';
 $g_crypto_master_salt = '4UvupWFBiqrR0io8D1+sU8ORnHqbzZuEsH+OkVlZUz+JeWWzAdUSqZF3Fy0A1ZiZWcvpcVKNXTwqJf0V3i9jPg==';	#  Random string of at least 16 chars, unique to the installation
 
 # --- Anonymous Access / Signup ---
-$g_allow_signup				= OFF;
+$g_allow_signup			= ON;
 $g_allow_anonymous_login	= ON;
-$g_anonymous_account		= 'Anonynmous_Reader';
+$g_anonymous_account		= 'Anonymous_Reader';
 
 # --- Email Configuration ---
 $g_phpMailer_method		= PHPMAILER_METHOD_SMTP; # or PHPMAILER_METHOD_SMTP, PHPMAILER_METHOD_SENDMAIL

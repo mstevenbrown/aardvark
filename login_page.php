@@ -269,7 +269,7 @@ if( $t_show_anonymous_login || $t_show_signup ) {
 	}
 
 	if( $t_show_signup ) {
-		echo '<a class="back-to-login-link pull-left" href="signup_page.php">', lang_get( 'signup_link' ), '</a>';
+		echo '<a class="back-to-login-link pull-left" href="http://www.opengroup.org/austin/">', lang_get( 'signup_link' ), '</a>';
 	}
 
 	echo '<div class="clearfix"></div>';
