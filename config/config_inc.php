@@ -108,6 +108,9 @@ $g_enable_project_documentation = ON;
 $g_priority_significant_threshold = -1;
 $g_severity_significant_threshold = -1;
 
+$g_enable_profiles = OFF;
+
+
 # The default columns to be included in the View Issues Page.
 $g_view_issues_page_columns = array ( 'selection', 'edit', 'priority', 'id', 'sponsorship_total', 'bugnotes_count', 'attachment', 'category', 'severity', 'status', 'resolution', 'last_updated', 'summary' );
 

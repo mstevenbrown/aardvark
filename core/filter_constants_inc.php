@@ -74,10 +74,10 @@ define( 'FILTER_PROPERTY_STICKY', 'sticky' );
 define( 'FILTER_PROPERTY_VIEW_STATE', 'view_state' ); # view_state
 define( 'FILTER_PROPERTY_FIXED_IN_VERSION', 'fixed_in_version' );
 define( 'FILTER_PROPERTY_TARGET_VERSION', 'target_version' );
-define( 'FILTER_PROPERTY_PROFILE_ID', 'profile_id' ); # show_profile
-define( 'FILTER_PROPERTY_PLATFORM', 'platform' );
-define( 'FILTER_PROPERTY_OS', 'os' );
-define( 'FILTER_PROPERTY_OS_BUILD', 'os_build' );
+# define( 'FILTER_PROPERTY_PROFILE_ID', 'profile_id' ); # show_profile
+# define( 'FILTER_PROPERTY_PLATFORM', 'platform' );
+# define( 'FILTER_PROPERTY_OS', 'os' );
+# define( 'FILTER_PROPERTY_OS_BUILD', 'os_build' );
 
 # These are old date fields names, keeping them for backward compatibility, if used externally
 define( 'FILTER_PROPERTY_START_DAY', FILTER_PROPERTY_DATE_SUBMITTED_START_DAY );
