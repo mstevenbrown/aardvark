@@ -96,7 +96,7 @@ $g_file_upload_method = DATABASE; # or DISK
 
 # --- Branding ---
 $g_window_title			= 'Austin Group Issue Tracker';
-# $g_logo_image			= 'images/mantis_logo.png';
+$g_logo_image			= 'images/AG_HEADER.png';
 # $g_favicon_image		= 'images/favicon.ico';
 
 # --- Real names ---
@@ -181,6 +181,8 @@ $g_status_colors = array(
         'Applied'     => '#d2f5b0', # green  (chameleon   #8ae234)
         'Closed'       => '#c9ccc4'  # grey   (aluminum    #babdb6)
 ); 
+
+
 
 
 
