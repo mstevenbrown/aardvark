@@ -72,13 +72,16 @@ $g_anonymous_account		= 'Anonymous_Reader';
 # --- Email Configuration ---
 $g_phpMailer_method		= PHPMAILER_METHOD_SMTP; # or PHPMAILER_METHOD_SMTP, PHPMAILER_METHOD_SENDMAIL
 $g_smtp_host			= 'localhost';			# used with PHPMAILER_METHOD_SMTP
+$g_smtp_port = 25;
+
 $g_smtp_username		= '';					# used with PHPMAILER_METHOD_SMTP
 $g_smtp_password		= '';					# used with PHPMAILER_METHOD_SMTP
 $g_webmaster_email      = 'webmaster@msnkbrown.net';
 $g_from_email           = 'noreply@msnkbrown.net';	# the "From: " field in emails
 $g_return_path_email    = 'webmaster@msnkbrown.net';	# the return address for bounced mail
 $g_from_name			= 'Austin Group Issue Tracker';
-$g_email_receive_own	= OFF;
+$g_email_receive_own    = ON;
+$g_email_notifications_verbose = ON;
 $g_email_send_using_cronjob = OFF;
 
 $g_notify_flags['new']['threshold_min'] = DEVELOPER;
