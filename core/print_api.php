@@ -1795,7 +1795,7 @@ function print_signup_link() {
 		 ( LDAP != config_get_global( 'login_method' ) ) &&
 		 ( ON == config_get( 'enable_email_notification' ) )
 	   ) {
-		print_link_button( 'signup_page.php', lang_get( 'signup_link' ) );
+		print_link_button( 'http://www.opengroup.org/austin/', lang_get( 'signup_link' ) );
 	}
 }
 

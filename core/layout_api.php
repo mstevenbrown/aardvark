@@ -1064,7 +1064,7 @@ function layout_breadcrumbs() {
 		echo '	<a href="' . helper_mantis_url( auth_login_page( 'return=' . $t_return_page ) ) .
 			'" class="btn btn-primary btn-xs">' . lang_get( 'login' ) . '</a>' . "\n";
 		if( auth_signup_enabled() ) {
-			echo '	<a href="' . helper_mantis_url( 'signup_page.php' ) . '" class="btn btn-primary btn-xs">' .
+			echo '	<a href="http://www.opengroup.org/austin/" class="btn btn-primary btn-xs">' .
 				lang_get( 'signup_link' ) . '</a>' . "\n";
 		}
 		echo '</div>' . "\n";

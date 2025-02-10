@@ -123,7 +123,7 @@ layout_login_page_begin();
 		<div class="toolbar center">
 			<a class="back-to-login-link pull-left" href="<?php echo AUTH_PAGE_USERNAME ?>"><?php echo lang_get( 'login' ); ?></a>
 			<?php if( auth_signup_enabled() ) { ?>
-			<a class="back-to-login-link pull-right" href="signup_page.php"><?php echo lang_get( 'signup_link' ); ?></a>
+			<a class="back-to-login-link pull-right" href="http://www.opengroup.org/austin"><?php echo lang_get( 'signup_link' ); ?></a>
 			<?php } ?>
 			<div class="clearfix"></div>
 		</div>
