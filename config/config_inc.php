@@ -186,6 +186,92 @@ $g_status_colors = array(
 ); 
 
 
+#### These three structs here to remove the 'steps_to_reproduce' field
+
+$g_bug_report_page_fields = array(
+        'additional_info',
+        'attachments',
+        'category_id',
+        'due_date',
+        'handler',
+        'os',
+        'os_build',
+        'platform',
+        'priority',
+        'product_build',
+        'product_version',
+        'reproducibility',
+        'severity',
+#        'steps_to_reproduce',
+        'tags',
+        'target_version',
+        'view_state',
+);
+
+$g_bug_view_page_fields = array(
+        'additional_info',
+        'attachments',
+        'category_id',
+        'date_submitted',
+        'description',
+        'due_date',
+        'eta',
+        'fixed_in_version',
+        'handler',
+        'id',
+        'last_updated',
+        'os',
+        'os_build',
+        'platform',
+        'priority',
+        'product_build',
+        'product_version',
+        'project',
+        'projection',
+        'reporter',
+        'reproducibility',
+        'resolution',
+        'severity',
+        'status',
+#        'steps_to_reproduce',
+        'summary',
+        'tags',
+        'target_version',
+        'view_state',
+);
+
+$g_bug_update_page_fields = array(
+        'additional_info',
+        'category_id',
+        'date_submitted',
+        'description',
+        'due_date',
+        'eta',
+        'fixed_in_version',
+        'handler',
+        'id',
+        'last_updated',
+        'os',
+        'os_build',
+        'platform',
+        'priority',
+        'product_build',
+        'product_version',
+        'project',
+        'projection',
+        'reporter',
+        'reproducibility',
+        'resolution',
+        'severity',
+        'status',
+#        'steps_to_reproduce',
+        'summary',
+        'target_version',
+        'view_state',
+);
+
+
+
 
 
 
