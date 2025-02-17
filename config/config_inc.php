@@ -58,7 +58,7 @@ $g_path = 'https://www.austingroupbugs.net/';
 $g_hostname      = 'localhost';
 $g_db_username   = 'aardvarkdbuser';
 $g_db_password   = 'aardvarkdbuser2019';
-$g_database_name = 'tester0db';
+$g_database_name = 'aardvarkdb23Dec19';
 $g_db_type       = 'mysqli';
 
 # --- Security ---
