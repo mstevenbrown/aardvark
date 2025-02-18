@@ -8,6 +8,13 @@ opposed to a code base. The Mantis code base is v 2.27.0.
 The document in question is the Single UNIX Specification (SUS), managed by the Austin
 Common Standards Revision Group ( http://www.opengroup.org/austin/ ). 
 
+NOTES:
+* The email is set to run with $g_email_send_using_cronjob = ON; You will need a cron 
+  script that runs every 5 minuites or so and executes something like:
+  `/usr/local/bin/php /home/skwnje0jrqpv/public_html/Naard/scripts/send_emails.php >> /dev/null`
+* When updating to a newer version of MantisBT, it will pay to do a complete diff
+  of the source base (or look through all the changes in this git :-) ).
+
 Below is the original README for Mantis:
 Mantis Bug Tracker (MantisBT)
 =============================

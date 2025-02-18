@@ -82,7 +82,7 @@ $g_return_path_email    = 'webmaster@msnkbrown.net';	# the return address for bo
 $g_from_name			= 'Austin Group Issue Tracker';
 $g_email_receive_own    = ON;
 $g_email_notifications_verbose = ON;
-$g_email_send_using_cronjob = OFF;
+$g_email_send_using_cronjob = ON;
 
 $g_notify_flags['new']['threshold_min'] = DEVELOPER;
 $g_notify_flags['new']['threshold_max'] = DEVELOPER;
