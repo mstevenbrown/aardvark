@@ -33,6 +33,17 @@
 # For all edits to any file in Mantis code, there will be a comment
 # with the text AUSTIN GROUP in a comment for ease in discovery.
 
+#########################
+# IF DETAILED ERROR DISPLAY NEEDED, TURN ON
+# WARNING - SECURITY RISK: the 'show_detailed_errors' config can cause
+# MantisBT to display sensitive information about your system.
+# We recommend to restrict its activation to a Test environment,
+# only for as long as necessary. If possible, do not turn it ON globally,
+# instead limit it for specific user(s) using the Manage Configuration page.
+##########################
+$g_show_detailed_errors = OFF;
+
+
 ##########################
 # MantisBT Path Settings #
 ##########################
