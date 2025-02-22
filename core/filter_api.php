@@ -347,17 +347,17 @@ function filter_get_url( array $p_custom_filter ) {
 		$t_query[] = filter_encode_field_and_value( FILTER_PROPERTY_RELATIONSHIP_BUG, $p_custom_filter[FILTER_PROPERTY_RELATIONSHIP_BUG] );
 	}
 
-# 	if( !filter_field_is_any( $p_custom_filter[FILTER_PROPERTY_PLATFORM] ) ) {
-# 		$t_query[] = filter_encode_field_and_value( FILTER_PROPERTY_PLATFORM, $p_custom_filter[FILTER_PROPERTY_PLATFORM] );
-# 	}
+ 	if( !filter_field_is_any( $p_custom_filter[FILTER_PROPERTY_PLATFORM] ) ) {
+ 		$t_query[] = filter_encode_field_and_value( FILTER_PROPERTY_PLATFORM, $p_custom_filter[FILTER_PROPERTY_PLATFORM] );
+ 	}
 
-#	if( !filter_field_is_any( $p_custom_filter[FILTER_PROPERTY_OS] ) ) {
-#		$t_query[] = filter_encode_field_and_value( FILTER_PROPERTY_OS, $p_custom_filter[FILTER_PROPERTY_OS] );
-#	}
+	if( !filter_field_is_any( $p_custom_filter[FILTER_PROPERTY_OS] ) ) {
+		$t_query[] = filter_encode_field_and_value( FILTER_PROPERTY_OS, $p_custom_filter[FILTER_PROPERTY_OS] );
+	}
 
-# 	if( !filter_field_is_any( $p_custom_filter[FILTER_PROPERTY_OS_BUILD] ) ) {
-# 		$t_query[] = filter_encode_field_and_value( FILTER_PROPERTY_OS_BUILD, $p_custom_filter[FILTER_PROPERTY_OS_BUILD] );
-# 	}
+ 	if( !filter_field_is_any( $p_custom_filter[FILTER_PROPERTY_OS_BUILD] ) ) {
+ 		$t_query[] = filter_encode_field_and_value( FILTER_PROPERTY_OS_BUILD, $p_custom_filter[FILTER_PROPERTY_OS_BUILD] );
+ 	}
 
 	if( !filter_field_is_any( $p_custom_filter[FILTER_PROPERTY_TAG_STRING] ) ) {
 		$t_query[] = filter_encode_field_and_value( FILTER_PROPERTY_TAG_STRING, $p_custom_filter[FILTER_PROPERTY_TAG_STRING] );
@@ -732,10 +732,10 @@ function filter_ensure_valid_filter( array $p_filter_arr ) {
 		FILTER_PROPERTY_FIXED_IN_VERSION => 'string',
 		FILTER_PROPERTY_TARGET_VERSION => 'string',
 		FILTER_PROPERTY_MONITOR_USER_ID => 'int',
-#		FILTER_PROPERTY_PROFILE_ID => 'int',
-# 		FILTER_PROPERTY_PLATFORM => 'string',
-# 		FILTER_PROPERTY_OS => 'string',
-# 		FILTER_PROPERTY_OS_BUILD => 'string',
+		FILTER_PROPERTY_PROFILE_ID => 'int',
+ 		FILTER_PROPERTY_PLATFORM => 'string',
+ 		FILTER_PROPERTY_OS => 'string',
+ 		FILTER_PROPERTY_OS_BUILD => 'string',
 		FILTER_PROPERTY_PROJECT_ID => 'int',
 		FILTER_PROPERTY_PROJECTION => 'int'
 	);
@@ -893,12 +893,12 @@ function filter_get_default_array( $p_view_type = null ) {
 		FILTER_PROPERTY_SORT_DIRECTION => 'DESC',
 		FILTER_PROPERTY_ISSUES_PER_PAGE => config_get( 'default_limit_view' ),
 		FILTER_PROPERTY_MATCH_TYPE => FILTER_MATCH_ALL,
-# 		FILTER_PROPERTY_PLATFORM => $t_meta_filter_any_array,
-# 		FILTER_PROPERTY_OS => $t_meta_filter_any_array,
-# 		FILTER_PROPERTY_OS_BUILD => $t_meta_filter_any_array,
+ 		FILTER_PROPERTY_PLATFORM => $t_meta_filter_any_array,
+ 		FILTER_PROPERTY_OS => $t_meta_filter_any_array,
+ 		FILTER_PROPERTY_OS_BUILD => $t_meta_filter_any_array,
 		FILTER_PROPERTY_FIXED_IN_VERSION => $t_meta_filter_any_array,
 		FILTER_PROPERTY_TARGET_VERSION => $t_meta_filter_any_array,
-# 		FILTER_PROPERTY_PROFILE_ID => $t_meta_filter_any_array,
+ 		FILTER_PROPERTY_PROFILE_ID => $t_meta_filter_any_array,
 		FILTER_PROPERTY_PRIORITY => $t_meta_filter_any_array,
 		FILTER_PROPERTY_NOTE_USER_ID => $t_meta_filter_any_array,
 		FILTER_PROPERTY_STICKY => gpc_string_to_bool( config_get( 'show_sticky_issues' ) ),
@@ -2013,9 +2013,9 @@ function filter_gpc_get( array $p_filter = null ) {
 	# If a single value is provided, it will be normalized to an array with 'filter_ensure_valid_filter()'
 
 	$f_show_category = gpc_get( FILTER_PROPERTY_CATEGORY_ID, $t_filter[FILTER_PROPERTY_CATEGORY_ID] );
-# 	$f_platform = gpc_get( FILTER_PROPERTY_PLATFORM, $t_filter[FILTER_PROPERTY_PLATFORM] );
-# 	$f_os = gpc_get( FILTER_PROPERTY_OS, $t_filter[FILTER_PROPERTY_OS] );
-# 	$f_os_build = gpc_get( FILTER_PROPERTY_OS_BUILD, $t_filter[FILTER_PROPERTY_OS_BUILD] );
+ 	$f_platform = gpc_get( FILTER_PROPERTY_PLATFORM, $t_filter[FILTER_PROPERTY_PLATFORM] );
+ 	$f_os = gpc_get( FILTER_PROPERTY_OS, $t_filter[FILTER_PROPERTY_OS] );
+ 	$f_os_build = gpc_get( FILTER_PROPERTY_OS_BUILD, $t_filter[FILTER_PROPERTY_OS_BUILD] );
 	$f_show_severity = gpc_get( FILTER_PROPERTY_SEVERITY, $t_filter[FILTER_PROPERTY_SEVERITY] );
 	$f_show_status = gpc_get( FILTER_PROPERTY_STATUS, $t_filter[FILTER_PROPERTY_STATUS] );
 	$f_hide_status = gpc_get( FILTER_PROPERTY_HIDE_STATUS, $t_filter[FILTER_PROPERTY_HIDE_STATUS] );
@@ -2028,7 +2028,7 @@ function filter_gpc_get( array $p_filter = null ) {
 	$f_show_version = gpc_get( FILTER_PROPERTY_VERSION, $t_filter[FILTER_PROPERTY_VERSION] );
 	$f_fixed_in_version = gpc_get( FILTER_PROPERTY_FIXED_IN_VERSION, $t_filter[FILTER_PROPERTY_FIXED_IN_VERSION] );
 	$f_target_version = gpc_get( FILTER_PROPERTY_TARGET_VERSION, $t_filter[FILTER_PROPERTY_TARGET_VERSION] );
-# 	$f_show_profile = gpc_get( FILTER_PROPERTY_PROFILE_ID, $t_filter[FILTER_PROPERTY_PROFILE_ID] );
+ 	$f_show_profile = gpc_get( FILTER_PROPERTY_PROFILE_ID, $t_filter[FILTER_PROPERTY_PROFILE_ID] );
 	$f_show_priority = gpc_get( FILTER_PROPERTY_PRIORITY, $t_filter[FILTER_PROPERTY_PRIORITY] );
 	$f_user_monitor = gpc_get( FILTER_PROPERTY_MONITOR_USER_ID, $t_filter[FILTER_PROPERTY_MONITOR_USER_ID] );
 	$f_note_user_id = gpc_get( FILTER_PROPERTY_NOTE_USER_ID, $t_filter[FILTER_PROPERTY_NOTE_USER_ID] );
@@ -2292,10 +2292,10 @@ function filter_gpc_get( array $p_filter = null ) {
 	$t_filter_input[FILTER_PROPERTY_STICKY] 					= $f_sticky_issues;
 	$t_filter_input[FILTER_PROPERTY_RELATIONSHIP_TYPE] 		= $f_relationship_type;
 	$t_filter_input[FILTER_PROPERTY_RELATIONSHIP_BUG] 		= $f_relationship_bug;
-# 	$t_filter_input[FILTER_PROPERTY_PROFILE_ID] 				= $f_show_profile;
-# 	$t_filter_input[FILTER_PROPERTY_PLATFORM] 				= $f_platform;
-# 	$t_filter_input[FILTER_PROPERTY_OS] 						= $f_os;
-# 	$t_filter_input[FILTER_PROPERTY_OS_BUILD] 				= $f_os_build;
+ 	$t_filter_input[FILTER_PROPERTY_PROFILE_ID] 				= $f_show_profile;
+ 	$t_filter_input[FILTER_PROPERTY_PLATFORM] 				= $f_platform;
+ 	$t_filter_input[FILTER_PROPERTY_OS] 						= $f_os;
+ 	$t_filter_input[FILTER_PROPERTY_OS_BUILD] 				= $f_os_build;
 	$t_filter_input[FILTER_PROPERTY_TAG_STRING] 				= $f_tag_string;
 	$t_filter_input[FILTER_PROPERTY_TAG_SELECT] 				= $f_tag_select;
 	$t_filter_input[FILTER_PROPERTY_NOTE_USER_ID] 			= $f_note_user_id;
