@@ -63,7 +63,7 @@ $g_show_detailed_errors = OFF;
  *
  * @global string $g_path
  */
-$g_path = 'https://www.austingroupbugs.net/';
+$g_path = '';
 
 # --- Database Configuration ---
 $g_hostname      = 'localhost';
